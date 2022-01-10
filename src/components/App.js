@@ -1,9 +1,17 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React from "react";
+import { Container } from "react-bootstrap";
+import Dice from "./Dice"
+
+
 
 function App() {
   return (
-    <div>hello world</div>
+    <Container className="p-5 mb-4 bg-light rounded-3">
+      <h1 className="header">hello world</h1>
+      <Dice />
+      
+
+    </Container>
   );
 }
 
