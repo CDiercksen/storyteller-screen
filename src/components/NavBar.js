@@ -35,6 +35,16 @@ const linkStyles = {
           >
             Dice
           </NavLink>
+          <NavLink
+          to="/adventurers"
+          exact
+          style={linkStyles}
+          activeStyle={{
+            background:"darkblue",
+          }}
+          >
+            Adventurers
+          </NavLink>
           </div>
       )
   }

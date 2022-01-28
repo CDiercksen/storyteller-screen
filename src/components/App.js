@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 import Dice from "./Dice"
 import NavBar from "./NavBar";
+import Adventurers from "./Adventurers";
 
 
 
@@ -15,6 +16,11 @@ function App() {
       <Switch>
         <Route exact path="/dice">
           <Dice />
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact path="/adventurers">
+          <Adventurers />
         </Route>
       </Switch>
     </Container>
