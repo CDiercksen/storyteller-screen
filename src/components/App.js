@@ -37,7 +37,7 @@ function App() {
       </Switch>
       <Switch>
         <Route exact path="/adventurers">
-          <AdventurersContainer adventuringParty={adventuringParty} />
+          <AdventurersContainer adventuringParty={adventuringParty} API_Path={API_Path} />
         </Route>
       </Switch>
     </Container>
