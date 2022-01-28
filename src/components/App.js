@@ -23,6 +23,14 @@ function App() {
       <h1 className="header">Storyteller Screen</h1>
       <NavBar />
       <Switch>
+        <Route exact path="/">
+      <h2>Welcome to your personalized Storytelling Screen!</h2>
+      <p>Feel free to use our dice roller, and Player Character Organizer through the buttons above.
+        And since this site is under constant revision, be sure to check back often for new features!
+      </p>
+        </Route>
+      </Switch>
+      <Switch>
         <Route exact path="/dice">
           <Dice />
         </Route>
