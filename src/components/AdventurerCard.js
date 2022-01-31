@@ -1,7 +1,13 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
-function AdventurerCard({ adventurer }) {
+
+function AdventurerCard({ adventurer, API_Path }) {
+    function handleDelete(){
+        fetch(`${API_Path}/${adventurer.id}`, {
+            method:'DELETE'
+        })
+    }
     return (
         <li className="card">
             <Card>
@@ -18,6 +24,7 @@ function AdventurerCard({ adventurer }) {
                     <Card.Text>
                         Spell DC: {adventurer.spell_dc}
                     </Card.Text>
+                    <Button variant="danger" onClick={handleDelete} >Delete PC?</Button>
                 </Card.Body>
             </Card>
         </li>

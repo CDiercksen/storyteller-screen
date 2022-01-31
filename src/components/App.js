@@ -5,6 +5,8 @@ import Dice from "./Dice"
 import NavBar from "./NavBar";
 import AdventurersContainer from "./AdventurersContainer";
 
+// To Do: Create Initiative Order Component
+// Create Treasure Tables
 const API_Path = `http://127.0.0.1:3001/adventurers`
 
 function App() {

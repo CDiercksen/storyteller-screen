@@ -16,7 +16,7 @@ function onSubmit(e){
       hit_point_maximum: hitPointMax,
       spell_dc: spellSaveDc
     }
-    fetch("http://127.0.0.1:3001/adventurers",{
+    fetch(`${API_Path}`,{
       method:'POST',
       headers : { 
         'Content-Type': 'application/json'

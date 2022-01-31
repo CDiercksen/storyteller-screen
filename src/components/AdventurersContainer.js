@@ -3,18 +3,13 @@ import { Container, Button } from "react-bootstrap";
 import AdventurerCard from "./AdventurerCard";
 import NewAdventurer from "./NewAdventurer";
 
-function AdventurersContainer({ adventuringParty }) {
+function AdventurersContainer({ adventuringParty, API_Path}) {
     const [showForm, setShowForm] = useState(false)
     function handleClick() {
         setShowForm((showForm) => !showForm)
         console.log(showForm)
     }
 
-    // showForm = () => {
-    //     return (
-    //         <h4>form shown</h4>
-    //     )
-    // }
     
     return (
         <div>
@@ -24,12 +19,13 @@ function AdventurersContainer({ adventuringParty }) {
             <AdventurerCard 
                 key={adventurer.id}
                 adventurer={adventurer}
+                API_Path={API_Path}
             />
             )}</ul>
             <Button 
                 variant="outline-primary" 
                 onClick={handleClick}>Add Adventurer</Button>
-                {showForm ? <NewAdventurer /> : null }
+                {showForm ? <NewAdventurer API_Path={API_Path} /> : null }
         </Container>
 
  </div>   
