@@ -9,15 +9,18 @@ const [spellSaveDc, setSpellSaveDc] = useState('')
 
 function onSubmit(e){
     e.preventDefault()
+    
     const adventurer = {
       name,
-      armorClass,
-      hitPointMax,
-      spellSaveDc,
+      armor_class: armorClass,
+      hit_point_maximum: hitPointMax,
+      spell_dc: spellSaveDc
     }
-    fetch(API_Path,{
+    fetch("http://127.0.0.1:3001/adventurers",{
       method:'POST',
-    //   headers:{'Content-Type': 'application/json'},
+      headers : { 
+        'Content-Type': 'application/json'
+       },
       body: JSON.stringify(adventurer)
     })
     .then(res => res.json())
@@ -42,7 +45,7 @@ return (
             <Form.Label>Spell Save DC</Form.Label>
             <Form.Control type="number" value={spellSaveDc} onChange={(e) => setSpellSaveDc(e.target.value)} placeholder="DC"></Form.Control>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" >
             Submit
         </Button>
     </Form>
