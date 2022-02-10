@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form , Button} from "react-bootstrap";
 
-function NewAdventurer({ API_Path }) {
+function NewAdventurer({ API_Path, onAddAdventurer }) {
 const [name, setName] = useState('')
 const [armorClass, setArmorClass] = useState('')
 const [hitPointMax, setHitPointMax] = useState('')
@@ -24,7 +24,7 @@ function onSubmit(e){
       body: JSON.stringify(adventurer)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then((newAdventurer) => onAddAdventurer(newAdventurer));
   
 }
 return (

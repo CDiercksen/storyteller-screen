@@ -7,6 +7,8 @@ import AdventurersContainer from "./AdventurersContainer";
 
 // To Do: Create Initiative Order Component
 // Create Treasure Tables
+// update state, which triggers re-render, so no refresh needed
+//  validations: Error messages (for example, don't submit an empty form)
 const API_Path = `http://127.0.0.1:3001/adventurers`
 
 function App() {
@@ -18,6 +20,11 @@ function App() {
     .then(data => setAdventuringParty(data))
   }, []);
   // console.log(adventurers);
+
+  function handleAddAdventurer(newAdventurer){
+    setAdventuringParty([...adventuringParty, newAdventurer])
+  }
+
 
   return (
     <div>
@@ -31,15 +38,14 @@ function App() {
         And since this site is under constant revision, be sure to check back often for new features!
       </p>
         </Route>
-      </Switch>
-      <Switch>
         <Route exact path="/dice">
           <Dice />
         </Route>
-      </Switch>
-      <Switch>
         <Route exact path="/adventurers">
-          <AdventurersContainer adventuringParty={adventuringParty} API_Path={API_Path} />
+          <AdventurersContainer adventuringParty={adventuringParty} API_Path={API_Path} onAddAdventurer={handleAddAdventurer}/>
+        </Route>
+        <Route path="/*">
+          {/* create 404 error component with link back tohome */}
         </Route>
       </Switch>
     </Container>
