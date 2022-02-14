@@ -5,8 +5,6 @@ import Dice from "./Dice"
 import NavBar from "./NavBar";
 import AdventurersContainer from "./AdventurersContainer";
 
-// To Do: Create Initiative Order Component
-// Create Treasure Tables
 // update state, which triggers re-render, so no refresh needed
 //  validations: Error messages (for example, don't submit an empty form)
 const API_Path = `http://127.0.0.1:3001/adventurers`
@@ -23,6 +21,12 @@ function App() {
 
   function handleAddAdventurer(newAdventurer){
     setAdventuringParty([...adventuringParty, newAdventurer])
+  }
+
+  function handleDeleteAdventurer(deletedAdventurer) {
+    // debugger
+    const updatedAdventuringParty = adventuringParty.filter((adventurer) => adventurer.id !== deletedAdventurer.id);
+    setAdventuringParty(updatedAdventuringParty);
   }
 
 
@@ -42,7 +46,11 @@ function App() {
           <Dice />
         </Route>
         <Route exact path="/adventurers">
-          <AdventurersContainer adventuringParty={adventuringParty} API_Path={API_Path} onAddAdventurer={handleAddAdventurer}/>
+          <AdventurersContainer 
+            adventuringParty={adventuringParty} 
+            API_Path={API_Path} 
+            onAddAdventurer={handleAddAdventurer}
+            onDeleteAdventurer={handleDeleteAdventurer}/>
         </Route>
         <Route path="/*">
           {/* create 404 error component with link back tohome */}

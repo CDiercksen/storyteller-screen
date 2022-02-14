@@ -3,7 +3,7 @@ import { Container, Button } from "react-bootstrap";
 import AdventurerCard from "./AdventurerCard";
 import NewAdventurer from "./NewAdventurer";
 
-function AdventurersContainer({ adventuringParty, API_Path, onAddAdventurer }) {
+function AdventurersContainer({ adventuringParty, API_Path, onAddAdventurer, onDeleteAdventurer }) {
     const [showForm, setShowForm] = useState(false)
     function handleClick() {
         setShowForm((showForm) => !showForm)
@@ -20,6 +20,7 @@ function AdventurersContainer({ adventuringParty, API_Path, onAddAdventurer }) {
                 key={adventurer.id}
                 adventurer={adventurer}
                 API_Path={API_Path}
+                onDeleteAdventurer={onDeleteAdventurer}
             />
             )}</ul>
             <Button 

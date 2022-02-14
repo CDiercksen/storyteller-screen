@@ -2,12 +2,15 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 
-function AdventurerCard({ adventurer, API_Path }) {
+function AdventurerCard({ adventurer, API_Path, onDeleteAdventurer }) {
     function handleDelete(){
         fetch(`${API_Path}/${adventurer.id}`, {
-            method:'DELETE'
+            method:'DELETE',
         })
-    }
+        // .then(res => res.json())
+        .then(() => onDeleteAdventurer(adventurer));
+    };
+    
     return (
         <li className="card">
             <Card>
