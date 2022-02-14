@@ -1,51 +1,25 @@
 import React from "react";
-// import { Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
-const linkStyles = {
-    display: "inline-block",
-    width: "50px",
-    padding: "12px",
-    margin: "0 6px 6px",
-    background: "blue",
-    TextDecoration: "none",
-    color: "white",
-  };
 
   function NavBar() {
       return (
-          <div>
-            <NavLink
-          to="/"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background:"darkblue",
-          }}
-          >
-            Home
-          </NavLink>
-          <NavLink
-          to="/dice"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background:"darkblue",
-          }}
-          >
-            Dice
-          </NavLink>
-          <NavLink
-          to="/adventurers"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background:"darkblue",
-          }}
-          >
-            Adventurers
-          </NavLink>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/dice">Dice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/adventurers">Adventurers</a>
+              </li>
+             </ul>
           </div>
+        </nav>
       )
   }
 
