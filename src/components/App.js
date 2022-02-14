@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Dice from "./Dice"
 import NavBar from "./NavBar";
 import AdventurersContainer from "./AdventurersContainer";
@@ -28,7 +28,20 @@ function App() {
     const updatedAdventuringParty = adventuringParty.filter((adventurer) => adventurer.id !== deletedAdventurer.id);
     setAdventuringParty(updatedAdventuringParty);
   }
-
+  function NoMatch() {
+    let location = useLocation();
+  
+    return (
+      <div>
+        <h3>
+          Sorry, there's no page match for <code>{location.pathname}</code>
+        </h3>
+        <h5>
+          click one of the links above to get back on track.
+        </h5>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -53,7 +66,7 @@ function App() {
             onDeleteAdventurer={handleDeleteAdventurer}/>
         </Route>
         <Route path="/*">
-          {/* create 404 error component with link back tohome */}
+          <NoMatch />
         </Route>
       </Switch>
     </Container>
