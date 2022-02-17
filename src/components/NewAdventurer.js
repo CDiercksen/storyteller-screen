@@ -6,6 +6,8 @@ const [name, setName] = useState('')
 const [armorClass, setArmorClass] = useState('')
 const [hitPointMax, setHitPointMax] = useState('')
 const [spellSaveDc, setSpellSaveDc] = useState('')
+const [errors, setErrors] = useState()
+
 
 function onSubmit(e){
     e.preventDefault()
@@ -24,8 +26,15 @@ function onSubmit(e){
       body: JSON.stringify(adventurer)
     })
     .then(res => res.json())
-    .then((newAdventurer) => onAddAdventurer(newAdventurer));
-  
+    .then((data) => {
+        if (data.errors === true, 
+       console.log(data));
+       else (
+           onAddAdventurer(data));
+        }
+        )
+  //data, if data.errors update errors state, render errors
+  //grab the errors coming in from backend and use them, fool.
 }
 return (
     <Form onSubmit={onSubmit}>

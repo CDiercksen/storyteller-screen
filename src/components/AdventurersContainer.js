@@ -7,7 +7,7 @@ function AdventurersContainer({ adventuringParty, API_Path, onAddAdventurer, onD
     const [showForm, setShowForm] = useState(false)
     function handleClick() {
         setShowForm((showForm) => !showForm)
-        console.log(showForm)
+        // console.log(showForm)
     }
 
     
